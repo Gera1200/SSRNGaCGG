@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Antigüedad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, button {
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-size: 1em;
+            width: 100%;
+            max-width: 300px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+        .boton-rojo {
+            background-color: #b22222;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+        }
+        .boton-rojo:hover {
+            background-color: #8b0000;
+        }
+        #resultados {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Calculadora de Antigüedad</h1>
+
+    <!-- Formulario de entrada -->
+    <label for="clave">Terminación Clave (Últimos 6 dígitos):</label>
+    <input type="text" id="clave" placeholder="Ejemplo: 123456">
+
+    <label for="fechaIngreso">Fecha de Ingreso (dd/mm/aaaa):</label>
+    <input type="date" id="fechaIngreso">
+
+    <label for="fechaEgreso">Fecha de Egreso (dd/mm/aaaa):</label>
+    <input type="date" id="fechaEgreso">
+
+    <label for="tipo">Tipo:</label>
+    <select id="tipo">
+        <option value="1">Activo</option>
+        <option value="2">Licencia</option>
+    </select>
+
+    <!-- Botones de acción -->
+    <button class="boton-rojo" onclick="agregarRegistro()">Agregar</button>
+    <button class="boton-rojo" onclick="calcular()">Calcular</button>
+    <button class="boton-rojo" onclick="eliminarTodo()">Eliminar Todo</button>
+
+    <!-- Tabla de registros -->
+    <table>
+        <thead>
+            <tr>
+                <th>Terminación Clave</th>
+                <th>Fecha de Ingreso</th>
+                <th>Fecha de Egreso</th>
+                <th>Tipo</th>
+                <th>Intervalo de Tiempo</th> <!-- Columna para intervalo con + o - -->
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tablaRegistros">
+            <!-- Los registros se mostrarán aquí -->
+        </tbody>
+    </table>
+
+    <!-- Resultados -->
+    <div id="resultados">
+        <p id="tiempoActivo">Tiempo Activo en años, meses y días: </p>
+        <p id="tiempoLicencia">Tiempo en Licencia en años, meses y días: </p>
+    </div>
+
+    <!-- Footer con siglas -->
+    <footer>
+        SSRN BPE/GACG
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
